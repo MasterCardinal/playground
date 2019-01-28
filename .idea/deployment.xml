@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData">
+  <component name="PublishConfigData" serverName="Laravel from Scratch">
     <serverData>
-      <paths name="OOP Blog">
+      <paths name="Laravel from Scratch">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="MCO DF">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

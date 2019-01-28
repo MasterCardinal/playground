@@ -1,29 +1,25 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
-    <h1>Show All Books</h1>
-    <h2>{{ $company->companyname  }}</h2>
+    <h1>Show Selected Books</h1>
+    <h2>{{ $book->title }}</h2>
 
     <p>
-        Street: {{ $company->companystreet }}<br>
-        House number: {{ $company->companyhousenumber }}<br/>
-        City: {{ $company->companycity }}<br/>
-        ZIP: {{ $company->companyzip }}<br/>
-        Country: {{ $company->companycountry }}
-    <form method="post" action="/company/{{ $company->id }}/edit">
+        Description: {{ $book->description }}
+    <form method="post" action="/book/{{ $book->id }}/edit">
         @csrf
-        <button class="btn btn-primary" type="submit" value="edit">Edit</button>
+        <button class="btn btn-primary" type="submit" value="edit">Edit this book</button>
     </form>
     </p>
 
-    <form method="post" action="/company/{{ $company->id }}">
+    <form method="post" action="/book/{{ $book->id }}">
         @csrf
         @method('DELETE')
-        <button class="btn btn-danger" type="submit">delete company</button>
+        <button class="btn btn-danger" type="submit">delete this book</button>
     </form>
 
     <p>
-        <a class="btn btn-primary" href="/company">Home</a>
+        <a class="btn btn-primary" href="/books">Home</a>
     </p>
 
 @endsection
