@@ -6,13 +6,13 @@
 
     <p>
         Description: {{ $book->description }}
-    <form method="post" action="/book/{{ $book->id }}/edit">
+    <form method="post" action="/books/{{ $book->id }}/edit">
         @csrf
         <button class="btn btn-primary" type="submit" value="edit">Edit this book</button>
     </form>
     </p>
 
-    <form method="post" action="/book/{{ $book->id }}">
+    <form method="post" action="/books/{{ $book->id }}">
         @csrf
         @method('DELETE')
         <button class="btn btn-danger" type="submit">delete this book</button>

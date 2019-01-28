@@ -26,7 +26,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
@@ -37,7 +37,11 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $book = new Book;
+        $book->title = $request->title;
+        $book->description = $request->description;
+        $book->save();
+        return redirect('/books');
     }
 
     /**
@@ -59,7 +63,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        return ('Die Edit');
     }
 
     /**

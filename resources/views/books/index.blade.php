@@ -16,5 +16,9 @@
         <li><a href="/books/{{ $book->id }}">{{ $book->title }}</a></li>
     @endforeach
 </ul>
+
+<p>
+    <a href="/books/create">Create New Book</a>
+</p>
 </body>
 </html>
