@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Http\Requests\BookStoreRequest;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -35,12 +36,23 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    /*public function store(Request $request)
     {
         $book = new Book;
         $book->title = $request->title;
         $book->description = $request->description;
         $book->save();
+        return redirect('/books');
+    }*/
+
+    public function store(BookStoreRequest $request)
+    {
+        $validated = $request->validated();
+        /*$book = new Book;
+        $book->title = $validated['title'];
+        $book->description = $validated['description'];
+        $book->save();*/
+        Book::create($validated);
         return redirect('/books');
     }
 
@@ -86,6 +98,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect('/books');
     }
 }
