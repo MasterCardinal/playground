@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Http\Requests\BookStoreRequest;
+use App\Http\Requests\BookUpdateRequest;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -75,7 +76,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return ('Die Edit');
+        return view('books.edit', compact('book'));
     }
 
     /**
@@ -85,9 +86,11 @@ class BookController extends Controller
      * @param  \App\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(BookUpdateRequest $request, Book $book)
     {
-        //
+        $validated = $request->validated();
+        $book->update($validated);
+        return redirect('/books');
     }
 
     /**

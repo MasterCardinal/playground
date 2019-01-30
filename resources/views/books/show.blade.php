@@ -6,11 +6,8 @@
 
     <p>
         Description: {{ $book->description }}
-    <form method="post" action="/books/{{ $book->id }}/edit">
-        @csrf
-        <button class="btn btn-primary" type="submit" value="edit">Edit this book</button>
-    </form>
     </p>
+    <p><a href="/books/{{ $book->id }}/edit">Edit</a></p>
 
     <form method="post" action="/books/{{ $book->id }}">
         @csrf
